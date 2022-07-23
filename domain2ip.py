@@ -18,10 +18,7 @@ import os
 # CODE
 # ---------------------------------------------------------------------------
 
-# Functions
-
 # INPUT
-
 try:
     origin_path = input('Type in your file path: ')
     file_path = os.path.dirname(os.path.realpath(origin_path))
@@ -42,7 +39,7 @@ for domain in domain_list:
     try:
         output = socket.gethostbyname(domain)
         
-        # OUTPUT
+# OUTPUT
         file_name = 'ip_list.txt'
         with open (file_path + "/" + file_name, 'a') as f:
             f.write(output + '\n')
