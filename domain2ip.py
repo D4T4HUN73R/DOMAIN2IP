@@ -27,12 +27,16 @@ try:
 except:
         print("Reading File ERROR!");
 
-domain_list_raw = f.read()
-domain_list = domain_list_raw.split('\n')
+domain_list = f.read()
+if ("https://" or "http://" or "/" in domain_list):
+    domain_list = domain_list.replace("https://","")
+    domain_list = domain_list.replace("http://","")
+    domain_list = domain_list.replace("/","")
+domain_list = domain_list.split('\n')
 
 for domain  in domain_list:
     try:
-        # print(domain)
+        # print(domain) DEBUG only
         output = socket.gethostbyname(domain)
         print(output)
     except:
