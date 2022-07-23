@@ -1,0 +1,29 @@
+ToDo 1 - Input Filter
+------------------------------------------------
+target clean input format: "google.com"
+
+possible unclean prefixes of inputs:
+- http://
+- https://
+- www.
+exclude following terms: "http", ":", "/", "https", "www."
+
+Yes totally right: a Domain name, which contains the excluded terms will
+also get filteret with this code. But the domain www.http.org isn't really
+interesting for me, so it can be a bit dirty here.
+
+possible unclean post-fixes of inputs:
+- /
+- :
+exclude following terms: "/", ":"
+
+It's crucial to manage the filters of the postfixes by checking if 
+the main domain is already correctly recognised.
+------------------------------------------------
+
+ToDo 2 - 
+------------------------------------------------
+
+
+------------------------------------------------
+
