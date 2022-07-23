@@ -19,24 +19,22 @@ import socket
 # ---------------------------------------------------------------------------
 
 # Functions
-def readFile(domain_list_path):
-    file_content = open(domain_list_path, "r")
-    domain_array = file_content.read().splitlines()
-    file_content.close()
-    return domain_array
-
-# ask for the input file paht
-domain_list_path = input('Enter the domain list filename or path: ')
-
-domain_array = readFile(domain_list_path)
 
 
+# ask for the input file path
+try:
+    f = open(input('Type in your file path: '), "r")
+except:
+        print("Reading File ERROR!");
 
+domain_list_raw = f.read()
+domain_list = domain_list_raw.split('\n')
 
-
-
-f = open(domain_list_path, 'r', encoding='utf-8')
-hostname_list = f.read()
-
-ip_addresses = socket.gethostbyname(hostname_list)
-print(ip_addresses)
+for domain  in domain_list:
+    try:
+        # print(domain)
+        output = socket.gethostbyname(domain)
+        print(output)
+    except:
+        print("ERROR!");
+f.close()

@@ -1,12 +1,17 @@
 import socket
 
-f = open(input('Type in your file path: '), "r")
-domain_list = f.readlines()
+try:
+    f = open(input('Type in your file path: '), "r")
+except:
+        print("Reading File ERROR!");
 
-for domains in domain_list:
-    print(domains) # Debugging
+domain_list_raw = f.read()
+domain_list = domain_list_raw.split('\n')
+
+for domain  in domain_list:
     try:
-        output = socket.gethostbyname(domains)
+        # print(domain)
+        output = socket.gethostbyname(domain)
         print(output)
     except:
         print("ERROR!");
