@@ -13,17 +13,20 @@
 # Imports
 # ---------------------------------------------------------------------------
 import socket
-
+import os
 # ---------------------------------------------------------------------------
 # CODE
 # ---------------------------------------------------------------------------
 
 # Functions
 
+# INPUT
 
-# ask for the input file path
 try:
-    f = open(input('Type in your file path: '), "r")
+    origin_path = input('Type in your file path: ')
+    file_path = os.path.dirname(os.path.realpath(origin_path))
+    print(file_path)
+    f = open(origin_path, "r")
 except:
         print("Reading File ERROR!");
 
@@ -34,11 +37,16 @@ if ("https://" or "http://" or "/" in domain_list):
     domain_list = domain_list.replace("/","")
 domain_list = domain_list.split('\n')
 
-for domain  in domain_list:
+# GET IP
+for domain in domain_list:
     try:
-        # print(domain) DEBUG only
         output = socket.gethostbyname(domain)
-        print(output)
+        
+        # OUTPUT
+        file_name = 'ip_list.txt'
+        with open (file_path + "/" + file_name, 'a') as f:
+            f.write(output + '\n')
     except:
         print("ERROR!");
 f.close()
+print("Your IP-List has succcessfully been generated!")

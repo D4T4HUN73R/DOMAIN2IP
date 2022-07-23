@@ -1,4 +1,4 @@
-ToDo 1 - Input Filter
+DONE! ToDo 1 - Input Filter
 ------------------------------------------------
 target clean input format: "google.com"
 
@@ -21,9 +21,10 @@ It's crucial to manage the filters of the postfixes by checking if
 the main domain is already correctly recognised.
 ------------------------------------------------
 
-ToDo 2 - 
+ToDo 2 - CHECK OUTPUT IF IP'S ARE ALREADY EXISTING
 ------------------------------------------------
-
+when the output ile will be appended it's important
+to check if the IP's are already in the file.
 
 ------------------------------------------------
 
